@@ -32,7 +32,7 @@
       <div>3.子菜单使用el-submenu组件，定义title使用template<br/>
         子菜单依然使用el-menu-item</div>
     </div>
-    <el-menu mode="horizontal" default-active="1">
+    <el-menu mode="horizontal" default-active="1" class="processingCenter">
       <el-menu-item index="1">处理中心</el-menu-item>
       <el-submenu index="2">
         <template slot="title">我的工作台</template>
@@ -42,6 +42,25 @@
       </el-submenu>
       <el-menu-item index="3" disabled>消息中心</el-menu-item>
       <el-menu-item index="4">订单管理</el-menu-item>
+    </el-menu>
+    <h3>3.侧栏导航</h3>
+    <el-menu mode="vertical">
+      <el-menu-item>
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航一</span>
+      </el-menu-item>
+      <el-menu-item>
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航二</span>
+      </el-menu-item>
+      <el-menu-item>
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航三</span>
+      </el-menu-item>
+      <el-menu-item>
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航三</span>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -58,5 +77,15 @@
   }
 </script>
 
-<style scoped>
+<style >
+  .processingCenter.el-menu.el-menu--horizontal{
+    background:red;
+
+  }
+  .processingCenter.el-menu.el-menu--horizontal .el-menu-item {
+    color:#fff;
+  }
+  .processingCenter.el-menu.el-menu--horizontal .el-menu-item   .el-submenu__title{
+    color:#fff !important;
+  }
 </style>

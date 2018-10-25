@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import table from '@/components/table'
 import pagination from '@/components/pagination'
 import menu from '@/components/menu'
+import  form from '@/components/form'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/menu',
       name: 'menu',
       component:menu
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component:form
     }
   ]
 })

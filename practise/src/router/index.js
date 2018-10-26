@@ -4,6 +4,7 @@ import table from '@/components/table'
 import pagination from '@/components/pagination'
 import menu from '@/components/menu'
 import  form from '@/components/form'
+import breadcrumb from '@/components/breadcrumb'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/form',
       name: 'form',
       component:form
+    },
+    {
+      path: '/breadcrumb',
+      name: 'breadcrumb',
+      component:breadcrumb
     }
   ]
 })

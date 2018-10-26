@@ -44,20 +44,58 @@
       <el-menu-item index="4">订单管理</el-menu-item>
     </el-menu>
     <h3>3.侧栏导航</h3>
-    <el-menu mode="vertical">
-      <el-menu-item>
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航一</span>
-      </el-menu-item>
-      <el-menu-item>
+    <div>导航栏的高亮和当前导航，default-active和index属性没有记错哦</div>
+    <div>2级导航:
+      <br/>
+      (1)el-submenu作为导航内容的包裹器，index表明导航的索引
+      <br/>
+      (2)第一级导航使用template,图标i和标题span是内容
+      <br/>
+      (3)第二级导航使用el-menu-item来写选项内容
+    </div>
+    <div>只要有了下一级导航，那么就会有扩展的箭头???这是一个切入点，i guess</div>
+    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+      <el-radio-button :label="false">展开</el-radio-button>
+      <el-radio-button :label="true">收起</el-radio-button>
+    </el-radio-group>
+    <div>
+      isCollapse这个值来控制展开和收起
+      <br/>
+      以及el-menu属性:collapse="isCollapse"
+    </div>
+    <el-menu mode="vertical" default-active="2"
+           class="el-menu-vertical-demo"
+             :collapse="isCollapse">
+        <el-submenu index="1" >
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <el-menu-item-group>
+            <template slot="title">
+                 分组1
+            </template>
+            <el-menu-item>
+              选项一
+            </el-menu-item>
+            <el-menu-item>
+              选项二
+            </el-menu-item>
+            <el-menu-item>
+              选项三
+            </el-menu-item>
+          </el-menu-item-group>
+
+        </el-submenu>
+      <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title">导航二</span>
       </el-menu-item>
-      <el-menu-item>
+      <el-menu-item index="3">
         <i class="el-icon-menu"></i>
         <span slot="title">导航三</span>
       </el-menu-item>
-      <el-menu-item>
+      <el-menu-item index="4">
         <i class="el-icon-menu"></i>
         <span slot="title">导航三</span>
       </el-menu-item>
@@ -70,9 +108,16 @@
     name: 'menu',
     data () {
       return {
+        isCollapse:true
       }
     },
     methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
     },
   }
 </script>
@@ -87,5 +132,9 @@
   }
   .processingCenter.el-menu.el-menu--horizontal .el-menu-item   .el-submenu__title{
     color:#fff !important;
+  }
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
   }
 </style>
